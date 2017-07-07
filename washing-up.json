@@ -1,0 +1,92 @@
+[
+     {
+        "id": 1,
+        "email": "alex@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":2,
+        "email": "andrew.p@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":3,
+        "email": "andy@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":4,
+        "email": "bradley@indigo-river.com",
+        "turn": "true"
+      },
+      {
+        "id":5,
+        "email": "jack@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":6,
+        "email": "jay@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":7,
+        "email": "james@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":8,
+        "email": "chris@indigo-river.com",
+        "turn":"false"
+      },
+      {
+        "id":9,
+        "email": "emma@indigo-river.com",
+        "turn":"false"
+      },
+      {
+        "id":10,
+        "email":"guneet@indigo-river.com",
+        "turn":"false"
+      },
+      {
+        "id":11,
+        "email":"jack@indigo-river.com",
+        "turn":"false"
+      },
+      {
+        "id":12,
+        "email":"jay@indigo-river.com",
+        "turn":"false"
+      },
+      {
+        "id":13,
+        "email":"james@indigo-river.com",
+        "turn":"false"
+      },
+      {
+        "id":14,
+        "email": "michael@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":15,
+        "email": "ravina@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":16,
+        "email": "ricardo@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":17,
+        "email": "russ@indigo-river.com",
+        "turn": "false"
+      },
+      {
+        "id":18,
+        "email": "sarah@indigo-river.com",
+        "turn": "false"
+      }
+]
