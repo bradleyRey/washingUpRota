@@ -49,7 +49,7 @@ app.post('/api/yourTurn',function(req,res){
     for(i=0;i<results.length;i++){
       if(results[i].turn === 'true'){
         var turn = {turn:results[i].email}
-        console.log(turn)
+      //  console.log(turn)
         //sending the email
         //var task = cron.schedule('* * * * MON-FRI', function() {
           let transporter = nodemailer.createTransport({
@@ -75,42 +75,59 @@ app.post('/api/yourTurn',function(req,res){
             console.log('Message' + info.messageId + 'sent:' + info.response)}});
         //task.stop()
 
+
+        var resultsLen = results.length
+        console.log(`There are ${resultsLen} documents in the database`)
+        var catchLast = results.length
         //means "Update One entry where email equals results[i].email"
         var dbQuery = {
           email: results[i].email
         }
+
+        var dbQueryLastPerson={
+          id:results[results.length - 1].id
+        }
+        var dbQueryFirstPerson={
+          id:results[0].id
+        }
+        var dbQueryNextPerson={
+          id:results[i+1]
+        }
         //need to create a new object based on the one from the DB so we are just updating the object, not ovewrwriting it
         updatedObject = Object.assign({}, results[i], {turn: 'false'});
+
+        //if current oerson is last in the list.... else
+
+        // Turning the next person in the object from false to true
+        updatedObjectNextPerson = Object.assign({}, results[i+1], {turn:'true'})
+
+        //Turning the first document in the db from false to true
+        updatedObjectFirstPerson = Object.assign({}, results[0], {turn:'true'})
+        updatedObjectLastPerson= Object.assign({},results[results.length-1],{turn:'false'})
 
         db.collection('washingupnames').updateOne(dbQuery,updatedObject,function(err,res){
           if(err) throw(err)
           console.log('updated persons turn from true to false')
         })
-        console.log(results[i])
-        if()
-        dbQueryNextPerson={
-          id: results[i+1].id,
-        }
-        updatedObjectNextPerson = Object.assign({}, results[i+1], {turn:'true'})
-
-        dbQueryLastPerson={
-          id:results[results.length - 1].id
-        }
-        updatedObjectFirstPerson = Object.assign({}, results[0], {turn:'true'})
-
-      //  console.log(dbQueryNextPerson)
+    // console.log(`The last position is at ${last}`)
       //changes the next person in the list to be sent an email by turning them to true
-      if(result[i].id === results[results.length - 1].id){
-        db.collection('washinguprota').updateOne(dbQueryLastPerson,updatedObjectFirstPerson,function(err,res){
+      console.log('test1',results[i].id)
+      console.log('test2',results[results.length -1 ].id)
+
+      if(results[i].id === results[results.length -1 ].id){
+        console.log('working')
+        db.collection('washingupnames').updateOne(dbQueryFirstPerson,updatedObjectFirstPerson,function(err,res){
           if(err)throw(err)
-          console.log('Reached the last peson, resetting to the first')
-        })}
-      else {
+          console.log('Updated the first person to true')
+        })
+      } else {
         db.collection('washingupnames').updateOne(dbQueryNextPerson,updatedObjectNextPerson,function(err,res){
           if(err)throw(err)
           console.log('updated the next person from false to true')
         })
       }
+
+      //console log everytihng...
 
         //updating from true to false
         //task.start()

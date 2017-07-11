@@ -22,3 +22,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+/**/
+.navHeader{
+  width:100%;
+  height:70px;
+  border: solid 2px black;
+
+}
+.navLogo{
+  height:70px;
+  float:left;
+
+}
+
+.irLogo{
+  height:70px;
+  float: left;
+}
