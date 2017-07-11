@@ -56,6 +56,7 @@ const TopHeader = () => {
 
   return (
     <div>
+    <p>Hello</p>
       <div className='navHeader'>
         <img className='navLogo' src={require('./images/navlogo.png')}/>
         <img className='irLogo' src={require('./images/IRlogo.png')}/>
