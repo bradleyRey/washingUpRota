@@ -52,7 +52,7 @@ app.post('/api/yourTurn',function(req,res){
         var names = {name:results[i].name}
        console.log('helooodfjsdljfnsdkfjnsdjfn',names)
         //sending the email by a cron job
-        //var task = cron.schedule('28 10 * * MON-FRI', function() {
+        var task = cron.schedule('7 16 * * MON-FRI', function() {
     /*    let transporter = nodemailer.createTransport({
           host: "smtp.office365.com",
           port: 587,
@@ -129,7 +129,7 @@ app.post('/api/yourTurn',function(req,res){
           })
         }
         //task.start()
-      //  })
+       })
         //break;
         res.send(results[i].email)
 

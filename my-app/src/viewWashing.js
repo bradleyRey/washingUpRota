@@ -58,7 +58,7 @@ const ViewName = (props) => {
   console.log(newName+' has been modified')
   var newNewName = newName.charAt(0).toUpperCase() + newName.slice(1)
   console.log('The finished product: ',newNewName)
-  
+
   return(
     <div>
       <div className='navHeader'>
@@ -70,13 +70,13 @@ const ViewName = (props) => {
       <div className='squareText'>
         <p>Welcome to the Live Washing Up Rota!</p>
         <p>This site will tell which lucky {"person's"} turn it is to wash up</p>
-        <p>The next person to do the washing up is</p>
+        <p>The next person to do the washing up is: </p>
         <p>{newNewName}!</p>
         <p>The next person to do the washing up will be {next}, who will do it tomorrow!</p>
       </div>
       <div className='footer'>
         <img className='irLogo' src={require('./images/irFooter.png')}/>
-        <a className='urllink'href="https://www.indigo-river.com">indigo-river.com</a>
+        <a className='urllink'href="http://www.indigo-river.com">indigo-river.com</a>
       </div>
     </div>
 
