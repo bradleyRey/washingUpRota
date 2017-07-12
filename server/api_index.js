@@ -1,4 +1,4 @@
-var express     = require('express');
+  var express     = require('express');
 var bodyParser  = require('body-parser');
 var cors        = require('cors')
 var app         = express();
@@ -49,15 +49,17 @@ app.post('/api/yourTurn',function(req,res){
     for(i=0;i<results.length;i++){
       if(results[i].turn === 'true'){
         var turn = {turn:results[i].email}
+        var names = {name:results[i].name}
+       console.log('helooodfjsdljfnsdkfjnsdjfn',names)
         //sending the email by a cron job
-      //  var task = cron.schedule('28 10 * * MON-FRI', function() {
-        let transporter = nodemailer.createTransport({
+        //var task = cron.schedule('28 10 * * MON-FRI', function() {
+    /*    let transporter = nodemailer.createTransport({
           host: "smtp.office365.com",
           port: 587,
           secure: false,
           auth: {
             user: 'bradley@indigo-river.com',
-            pass: "Yuwa43230"
+            pass: ""
             }
           })
         let mailOptions = {
@@ -73,7 +75,7 @@ app.post('/api/yourTurn',function(req,res){
           } else {
             console.log('Message' + info.messageId + 'sent:' + info.response)}});
         //task.stop()
-
+*/
         // To check the size of the list being used
         var resultsLen = results.length
         console.log(`There are ${resultsLen} documents in the database`)
@@ -130,6 +132,7 @@ app.post('/api/yourTurn',function(req,res){
       //  })
         //break;
         res.send(results[i].email)
+
       }
     }
   })
@@ -141,7 +144,14 @@ app.post('/api/nextDay',function(req,res){
   db.collection('washingupnames').find().toArray((err,results)=>{
     for(i=0;i<results.length;i++){
       if(results[i].turn === 'true'){
-        console.log(results[i+1].name)
+        if(results[i].id ===  results[results.length -1 ].id){
+          console.log(results[0].name)
+          res.send(results[0].name)
+        }
+        else{
+          console.log(results[i+1].name)
+          res.send(results[i+1].name)
+        }
       }
     }
   })

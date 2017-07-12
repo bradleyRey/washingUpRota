@@ -10,6 +10,12 @@ class NamesApi {
         return callback(response)
     })
   }
+  static getNext(callback){
+    axios.post('http://localhost:8080/api/nextDay')
+      .then( response => {
+        return callback(response)
+    })
+  }
 }
 
 export default NamesApi

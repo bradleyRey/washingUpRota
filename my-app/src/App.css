@@ -22,9 +22,8 @@
 }
 
 body{
-  background:  url('./images/background.jpg')no-repeat center center fixed;
+  background:  url('./images/newBckg.jpg')no-repeat center center fixed;
   background-size:cover;
-
 }
 
 .bgImg{
@@ -49,4 +48,12 @@ body{
    background-color:white;
    padding:10px;
 
+}
+.urllink{
+  position:absolute;
+  right:5px;
+  padding-top: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
 }
