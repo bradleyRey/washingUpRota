@@ -16,6 +16,12 @@ class NamesApi {
         return callback(response)
     })
   }
+  static getCurrent(callback){
+    axios.post('http://localhost:8080/api/currentDay')
+      .then( response => {
+        return callback(response)
+      })
+  }
 }
 
 export default NamesApi

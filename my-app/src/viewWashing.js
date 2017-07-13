@@ -14,7 +14,7 @@ class WashingUp extends Component{
 
   componentWillMount(){
 
-    NamesApi.getNames(names => {
+    NamesApi.getCurrent(names => {
       console.log(names.data)
       console.log(names,'fkjgkfn')
       this.setState({
@@ -59,6 +59,7 @@ const ViewName = (props) => {
   var newNewName = newName.charAt(0).toUpperCase() + newName.slice(1)
   console.log('The finished product: ',newNewName)
 
+
   return(
     <div>
       <div className='navHeader'>
@@ -68,11 +69,10 @@ const ViewName = (props) => {
       <div className='bgImg'>
       </div>
       <div className='squareText'>
-        <p>Welcome to the Live Washing Up Rota!</p>
-        <p>This site will tell which lucky {"person's"} turn it is to wash up</p>
-        <p>The next person to do the washing up is: </p>
-        <p>{newNewName}!</p>
-        <p>The next person to do the washing up will be {next}, who will do it tomorrow!</p>
+        <h1>Welcome to the Live Washing Up Rota</h1>
+        <p className = 'subHeader'>Is it your lucky day?</p>
+        <p className='whosTurn'>Today, the Washing Up Rota chooses {data}!</p>
+        <p>But {"don't"} worry {next}, you can show us your scrubbing skills tomorrow!</p>
       </div>
       <div className='footer'>
         <img className='irLogo' src={require('./images/irFooter.png')}/>

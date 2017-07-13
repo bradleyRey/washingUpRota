@@ -1,4 +1,4 @@
-  var express     = require('express');
+var express     = require('express');
 var bodyParser  = require('body-parser');
 var cors        = require('cors')
 var app         = express();
@@ -43,23 +43,30 @@ app.post('/api/getAll',function(req,res){
     res.send(results)
   })
 });
+
+
 //Retrieve the selected person which will send them an email tellig them its their turn to wash up
-app.post('/api/yourTurn',function(req,res){
-  db.collection('washingupnames').find().toArray((err,results)=>{
-    for(i=0;i<results.length;i++){
-      if(results[i].turn === 'true'){
-        var turn = {turn:results[i].email}
-        var names = {name:results[i].name}
-       console.log('helooodfjsdljfnsdkfjnsdjfn',names)
-        //sending the email by a cron job
-        var task = cron.schedule('7 16 * * MON-FRI', function() {
-    /*    let transporter = nodemailer.createTransport({
+  app.post('/api/yourTurn',function(req,res){
+    var task = cron.schedule('*/1 * * * MON-FRI', function() {
+    db.collection('washingupnames').find().toArray((err,results)=>{
+      //console.log(results)
+
+      console.log('ewrretrew')
+      for(i=0;i<results.length;i++){
+        if(results[i].turn === 'true'){
+         var turn = {turn:results[i].email}
+         var names = {name:results[i].name}
+        // console.log('helooo',names)
+          //sending the email by a cron job
+          console.log('script works at this point ')
+            console.log('Cron activated! Firing script...')
+        let transporter = nodemailer.createTransport({
           host: "smtp.office365.com",
           port: 587,
           secure: false,
           auth: {
             user: 'bradley@indigo-river.com',
-            pass: ""
+            pass: "Fudu3133"
             }
           })
         let mailOptions = {
@@ -75,12 +82,13 @@ app.post('/api/yourTurn',function(req,res){
           } else {
             console.log('Message' + info.messageId + 'sent:' + info.response)}});
         //task.stop()
-*/
+
         // To check the size of the list being used
         var resultsLen = results.length
         console.log(`There are ${resultsLen} documents in the database`)
         var catchLast = results.length
         //Update One entry where the email query matches the position in in the loop (results[i].email)
+        console.log(results)
         var dbQuery = {
           email: results[i].email
         }
@@ -128,13 +136,12 @@ app.post('/api/yourTurn',function(req,res){
             console.log('updated the next person from false to true')
           })
         }
-        //task.start()
-       })
         //break;
-        res.send(results[i].email)
-
+        }
       }
-    }
+    })
+    task.start()
+
   })
 })
 
@@ -149,10 +156,32 @@ app.post('/api/nextDay',function(req,res){
           res.send(results[0].name)
         }
         else{
-          console.log(results[i+1].name)
-          res.send(results[i+1].name)
+          console.log(results[i].name)
+          res.send(results[i].name)
         }
       }
     }
   })
 })
+
+
+
+
+// Display cuerrent persons day on front end
+
+app.post('/api/currentDay',function(req,res){
+  db.collection('washingupnames').find().toArray((err,results) =>{
+    for(i=0;i<results.length;i++){
+      if(results[i].turn === 'true'){
+        res.send(results[i-1].name)
+      }
+    }
+  })
+})
+
+// Display tomororws person on front end
+
+
+// Find a way of seeing current active crons in node
+
+// Whe visiting the site, this should have ntohing to do with the cron. Cron can be intiiated via Postman
