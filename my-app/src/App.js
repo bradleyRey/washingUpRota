@@ -8,6 +8,12 @@ class App extends Component {
     return (
       <div className="App">
         <WashingUp />
+        <div className='footer'>
+          <div className='maxWidth'>
+            <img className='irLogoFooter' src={require('./images/irFooter.png')}/>
+            <a className='urllink'href="http://www.indigo-river.com">indigo-river.com</a>
+          </div>
+        </div>
       </div>
     );
   }

@@ -62,26 +62,23 @@ const ViewName = (props) => {
 
   return(
     <div>
-      <div className='navHeader'>
-          <img className='navLogo' src={require('./images/navlogo.png')}/>
-          <img className='irLogo' src={require('./images/IRlogo.png')}/>
-      </div>
-      <div className='bgImg'>
-      </div>
-      <div className='squareText'>
-        <h1>Welcome to the Live Washing Up Rota</h1>
-        <p className = 'subHeader'>Is it your lucky day?</p>
-        <p className='whosTurn'>Today, the Washing Up Rota chooses {data}!</p>
-        <p>But {"don't"} worry {next}, you can show us your scrubbing skills tomorrow!</p>
-      </div>
-      <div className='footer'>
-        <img className='irLogo' src={require('./images/irFooter.png')}/>
-        <a className='urllink'href="http://www.indigo-river.com">indigo-river.com</a>
+      <div>
+        <div className='navHeader'>
+          <div className='maxWidth'>
+            <img className='navLogo' src={require('./images/navlogo.png')}/>
+            <img className='irLogo' src={require('./images/IRlogo.png')}/>
+          </div>
+        </div>
+        <div className='squareText'>
+          <h1>Welcome to the Live Washing Up Rota</h1>
+          <p className = 'subHeader'>Is it your lucky day?</p>
+          <p className='whosTurn'>Today, the Washing Up Rota chooses <strong>{data}</strong></p>
+          <p className='lastSentence'>But {"don't"} worry <strong>{next}</strong>, you can show us your scrubbing skills tomorrow!</p>
+        </div>
       </div>
     </div>
 
   )
-
 }
 
 export default WashingUp;

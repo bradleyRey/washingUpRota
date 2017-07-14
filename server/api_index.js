@@ -50,8 +50,6 @@ app.post('/api/getAll',function(req,res){
     var task = cron.schedule('*/1 * * * MON-FRI', function() {
     db.collection('washingupnames').find().toArray((err,results)=>{
       //console.log(results)
-
-      console.log('ewrretrew')
       for(i=0;i<results.length;i++){
         if(results[i].turn === 'true'){
          var turn = {turn:results[i].email}
@@ -66,7 +64,7 @@ app.post('/api/getAll',function(req,res){
           secure: false,
           auth: {
             user: 'bradley@indigo-river.com',
-            pass: "Fudu3133"
+            pass: ""
             }
           })
         let mailOptions = {
@@ -178,10 +176,3 @@ app.post('/api/currentDay',function(req,res){
     }
   })
 })
-
-// Display tomororws person on front end
-
-
-// Find a way of seeing current active crons in node
-
-// Whe visiting the site, this should have ntohing to do with the cron. Cron can be intiiated via Postman

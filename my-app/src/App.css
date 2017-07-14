@@ -1,7 +1,15 @@
-
+html,body,#root,.App{
+  height: 100%;
+}
+.maxWidth{
+  margin:0 auto;
+  max-width: 1450px;
+  width:100%;
+}
 .navHeader{
   padding:30px;
   background: rgba(255, 255, 255,0.7);
+
 
 
 }
@@ -10,14 +18,17 @@
   display: inline-block;
   vertical-align: middle;
   padding-right: 15px;
-
-
+}
+.irLogo{
+  height:40px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.irLogo{
+.irLogoFooter{
   height:50px;
   display: inline-block;
-
+  padding-left: 15px;
   vertical-align: middle;
 }
 .bgImg{
@@ -27,6 +38,7 @@ body{
   background:  url('./images/splashBkg.jpg')no-repeat center center fixed;
   background-color: white;
   background-size:cover;
+  position: relative;
 }
 
 .bgImg{
@@ -34,7 +46,6 @@ body{
 }
 
 .squareText{
-  width:75%;
   padding:100px;
   margin:auto;
   color:white;
@@ -44,19 +55,19 @@ body{
 }
 
 .footer{
-   position:absolute;
+  position: absolute;
    bottom:0;
-   width:100%;
    background-color:white;
    padding:10px;
-   opacity: 0.7
-
+   opacity: 0.7;
+   width:100%;
+   box-sizing: border-box;
 }
 .urllink{
   float:right;
   padding:20px;
   right:5px;
-  padding-top: 10px;
+  padding-top: 13px;
   font-size: 20px;
   text-decoration: none;
   color: black;
@@ -68,5 +79,60 @@ body{
 }
 
 .subHeader{
-  padding-bottom: 10px;
+  padding-top: 26px;
+}
+
+.lastSentence{
+   margin-top:-26px;
+}
+
+@media(max-width:790px){
+  .whosTurn{
+    font-size:25px;
+  }
+  .subHeader{
+    font-size: 25px;
+  }
+  h1{
+    font-size: 30px;
+  }
+  .lastSentence{
+    font-size: 25px;
+  }
+}
+
+
+@media(max-width:505px){
+  .whosTurn{
+    font-size:20px;
+    padding:5px;
+  }
+  .subHeader{
+    font-size: 20px;
+
+  }
+  h1{
+    font-size: 25px;
+
+  }
+  .lastSentence{
+    font-size: 20px;
+    margin-bottom: 30px;
+
+  }
+  .squareText{
+    padding:20px;
+  }
+  .irLogoFooter{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding:0;
+  }
+  .urllink{
+    display:block;
+    float: none;
+    padding:0;
+    text-align: center;
+  }
 }
